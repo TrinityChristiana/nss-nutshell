@@ -54,7 +54,6 @@ const getURL = (hash = window.location.hash) => {
   
           </div>
         </div>
-document.getElementById('container').innerHTML = '';
           `;	
         document.getElementById('container').innerHTML = '';
         tasks.runIt();
