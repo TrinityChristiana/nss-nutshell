@@ -102,8 +102,8 @@ const getURL = (hash = window.location.hash) => {
           );
         } else if (queryString == "" || queryString == '#') {
           const url = `${
-            window.location.href.split('com')[0]com
-          }#home`;
+            window.location.href.split('com')[0]
+          }come#home`;
           window.history.pushState({path:url},'',url);
           document.getElementById('dropdown-nav-text').innerText =
             'Menu';
