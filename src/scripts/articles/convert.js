@@ -18,8 +18,12 @@ const convert = {
 	},
 	articleSections(articleContainer) {
 		articleContainer.innerHTML = `
-        <div id="news-modal"></div>
-        <button id="open-add-news">Add News</button>
+		<div id="news-modal"></div>
+
+		<div id="open-add-news" class="ui blue button">
+		<i class="plus icon"></i>
+			Add Article 
+		</div>
         <div id="news-header">
 			<div class="ui text loader">Loading</div>
 	  	</div>
@@ -80,11 +84,10 @@ const convert = {
 				sortedData.forEach(element => {
 					if (typeof userId == 'object') {
 						userId.forEach(user => {
-							if(user[0] == element.userId){
+							if (user[0] == element.userId) {
 								name = user[1];
 							}
 						});
-						
 					}
 
 					const id = element.id;
@@ -100,8 +103,8 @@ const convert = {
 						<img class="newsFeed-img" id="newsFeed-img--${id}" src="scripts/articles/spinner.svg" alt="spinner"></img>
 					</div>
 					<div class="news-card-text-container">
-					<div id="creator-name--${id}"></div>
 					<p class="news-title">${title}</p>
+					<div id="creator-name--${id}" class="creator-name"></div>
 					<p class="news-description">${synopsis}</p>
 					<a href="${url}" target="_blank" class="news-link">Link Here</a>
 					</div>
@@ -113,17 +116,14 @@ const convert = {
 					if (name !== undefined) {
 						document.getElementById(
 							`creator-name--${id}`
-						).innerText = name;
-
-
+						).innerText = `Added By: ${name}`;
 					} else {
 						document.getElementById(
 							`card-buttons-${id}`
 						).innerHTML = `
 						<button id="news-delete--${id}"><i class="trash alternate icon"></i></button>
 						<button id="news-edit--${id}"><i class="edit icon"></i></button>
-						`
-
+						`;
 					}
 				});
 
@@ -140,7 +140,7 @@ const convert = {
 							).src = cardImg;
 						})
 						.then(() => {
-							if(name == undefined){
+							if (name == undefined) {
 								eventListeners.deleteArticleEvt(element.id);
 								eventListeners.editArticleEvt(element.id);
 							}
@@ -167,7 +167,9 @@ const convert = {
 
             </div>
         </div>
-        `;
+		`;
+
+		eventListeners.textareaText();
 	}
 };
 
