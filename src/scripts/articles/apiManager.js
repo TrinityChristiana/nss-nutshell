@@ -1,8 +1,10 @@
 const apiManager = {
-	getUserNews() {
-		const activeUserId = sessionStorage.getItem("activeUsers");
+	getUserNews(userId) {
+		
 		return fetch(
+
 			`https://tct-nutshell.herokuapp.com/news?userId=${activeUserId}`
+
 		).then(resp => resp.json());
 	},
 	getSiteUrl() {
@@ -42,6 +44,10 @@ const apiManager = {
 				body: JSON.stringify(newsObj)
 			}
 		);
+	},
+	getArticleAPI(){
+		return fetch(`http://localhost:8088/apiKeys/1`)
+		.then(resp => resp.json());
 	}
 };
 

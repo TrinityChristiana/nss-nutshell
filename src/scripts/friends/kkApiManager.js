@@ -1,3 +1,5 @@
+//Kurt Krafft => this page handles all my api calls
+
 const baseUrl = "http://localhost:8088/"
 
 const apiManager = {
@@ -67,6 +69,14 @@ const apiManager = {
          body: JSON.stringify(object)
        }).then(r=>r.json());
        
+     },
+     checkOneFriend: (friendUserId, userId) => {
+       return fetch (`${baseUrl}friends?friendUserId=${userId}&userId=${friendUserId}`)
+        .then(r=>r.json())
+     }, 
+     searchFriendByName:(username) => {
+       return fetch(`${baseUrl}users?username=${username}`)
+       .then(r=>r.json());;
      }
 
 }
