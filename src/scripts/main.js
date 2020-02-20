@@ -86,7 +86,7 @@ const getURL = (hash = window.location.hash) => {
           kkMainManager.kkRunIt(activeUser);
         } else if (queryString == '#logout') {
           document.getElementById('dropdown-nav-text').innerText = 'Logout';
-          
+           document.getElementById('sidebar-button').innerHTML = '';
           sessionStorage.removeItem('activeUsers');
           const url = `${
             window.location.href.split('com')[0]
