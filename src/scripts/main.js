@@ -16,7 +16,7 @@ window.addEventListener("hashchange", function() {
 
 document.getElementsByTagName("NAV")[0].addEventListener("click", () => {
   if(navbarArray.includes(event.target.id)){
-    window.location.href = `${window.location.href.split('com')[0]}.com#${event.target.id}`;
+    window.location.href = `${window.location.href.split('com')[0]}com#${event.target.id}`;
   }
 });
 
@@ -89,7 +89,7 @@ const getURL = (hash = window.location.hash) => {
           
           sessionStorage.removeItem('activeUsers');
           const url = `${
-            window.location.href.split('com')[0].com
+            window.location.href.split('com')[0]com
           }`;
           window.history.pushState({path:url},'',url);
           document.getElementById('big-nav').classList.add('hidden-item');
@@ -102,7 +102,7 @@ const getURL = (hash = window.location.hash) => {
           );
         } else if (queryString == "" || queryString == '#') {
           const url = `${
-            window.location.href.split('com')[0].com
+            window.location.href.split('com')[0]com
           }#home`;
           window.history.pushState({path:url},'',url);
           document.getElementById('dropdown-nav-text').innerText =
@@ -132,7 +132,7 @@ const getURL = (hash = window.location.hash) => {
 
 	} else {
     const url = `${
-      window.location.href.split('com')[0].com
+      window.location.href.split('com')[0]com
     }`;
     window.history.pushState({path:url},'',url);
     document.getElementById('big-nav').classList.add('hidden-item');
