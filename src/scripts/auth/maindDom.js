@@ -9,6 +9,7 @@ const inputMainDom = {
           <fieldset id="emails">
             <label for="email">Email: </label>
             <input
+autocomplete="email"
               name="email"
               type="text"
               id="email-entry"
@@ -18,6 +19,7 @@ const inputMainDom = {
           <fieldset id="usernames">
             <label for="password">Password: </label>
             <input
+autocomplete="current-password"
               type="password"
               name="password"
               id="password-entry"
