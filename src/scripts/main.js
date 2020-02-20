@@ -89,8 +89,8 @@ const getURL = (hash = window.location.hash) => {
           
           sessionStorage.removeItem('activeUsers');
           const url = `${
-            window.location.href.split('com')[0]com
-          }`;
+            window.location.href.split('com')[0]
+          }com`;
           window.history.pushState({path:url},'',url);
           document.getElementById('big-nav').classList.add('hidden-item');
         document.getElementById('small-nav').classList.add('hidden-item');
@@ -103,7 +103,7 @@ const getURL = (hash = window.location.hash) => {
         } else if (queryString == "" || queryString == '#') {
           const url = `${
             window.location.href.split('com')[0]
-          }come#home`;
+          }com#home`;
           window.history.pushState({path:url},'',url);
           document.getElementById('dropdown-nav-text').innerText =
             'Menu';
@@ -132,8 +132,8 @@ const getURL = (hash = window.location.hash) => {
 
 	} else {
     const url = `${
-      window.location.href.split('com')[0]com
-    }`;
+      window.location.href.split('com')[0]
+    }com`;
     window.history.pushState({path:url},'',url);
     document.getElementById('big-nav').classList.add('hidden-item');
 		document.getElementById('small-nav').classList.add('hidden-item');
