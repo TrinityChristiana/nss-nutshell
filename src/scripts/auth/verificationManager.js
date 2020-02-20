@@ -41,7 +41,7 @@ const verificationManager = {
 
               const url = `${
             window.location.href.split('com')[0]
-          }.com#home`;
+          }com#home`;
           window.history.pushState({path:url},'',url);
 
 
@@ -60,7 +60,7 @@ const verificationManager = {
                             sessionStorage.setItem('activeUsers', arr.id)
                             const url = `${
             window.location.href.split('com')[0]
-          }.com#home`;
+          }com#home`;
           window.history.pushState({path:url},'',url);
                         })
                         
