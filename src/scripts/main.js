@@ -48,16 +48,18 @@ const getURL = () => {
 		} else if (queryString == 'events') {
 			document.getElementById('dropdown-nav-text').innerText = 'Events';
 
+
 			eventsMainManager.eventNavButton(
 				sessionStorage.getItem(`activeUsers`)
 			);
 		} else if (queryString == undefined || queryString == '') {
-			window.location.href = `${
-				window.location.href.split('src')[0]
-			}src/index.html?home`;
+			window.location.href = `${window.location.href.split("com")[0]}com?home`;
 		} else if (queryString == 'home&news') {
 			document.getElementById('dropdown-nav-text').innerText =
 				'Friend News';
+      sessionStorage.removeItem('activeUsers')
+    } else if (queryString == "events") {
+      document.getElementById("dropdown-nav-text").innerText = "Events"
 
 			allNews.runIt();
 		} else if (queryString == 'home&events') {
