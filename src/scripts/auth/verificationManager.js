@@ -43,7 +43,9 @@ const verificationManager = {
             window.location.href.split('com')[0]
           }com#home`;
           window.history.pushState({path:url},'',url);
-
+           document.getElementById("container").innerHTML = "<div class="ui active dimmer">
+          <div class="ui text loader">Loading</div>
+        </div>";
 
           }else if (arr[0].username===obj.username || arr[0].email===obj.email) {
               domManager.errorBoxFiller();
@@ -62,6 +64,9 @@ const verificationManager = {
             window.location.href.split('com')[0]
           }com#home`;
           window.history.pushState({path:url},'',url);
+                            document.getElementById("container").innerHTML = "<div class="ui active dimmer">
+          <div class="ui text loader">Loading</div>
+        </div>";
                         })
                         
                     }else {
