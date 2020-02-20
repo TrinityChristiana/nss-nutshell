@@ -3,7 +3,7 @@ const apiManager = {
 		
 		return fetch(
 
-			`https://tct-nutshell.herokuapp.com/news?userId=${activeUserId}`
+			`https://tct-nutshell.herokuapp.com/news?userId=${userId}`
 
 		).then(resp => resp.json());
 	},
