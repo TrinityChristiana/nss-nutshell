@@ -30,7 +30,7 @@ const getURL = () => {
       kkMainManager.kkRunIt(activeUser);
     } else if (queryString == "logout") {
       sessionStorage.removeItem('activeUsers')
-    window.location.href = `${window.location.href.split("src")[0]}src/index.html`;
+    window.location.href = `${window.location.href.split("com")[0]}com`;
     } else if (queryString == "events") {
       eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
     } else if (queryString == undefined){
