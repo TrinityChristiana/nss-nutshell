@@ -16,7 +16,7 @@ window.addEventListener("hashchange", function() {
 
 document.getElementsByTagName("NAV")[0].addEventListener("click", () => {
   if(navbarArray.includes(event.target.id)){
-    window.location.href = `${window.location.href.split("src")[0]}src/index.html#${event.target.id}`;
+    window.location.href = `${window.location.href.split("src")[0]}#${event.target.id}`;
   }
 });
 
@@ -90,7 +90,7 @@ const getURL = (hash = window.location.hash) => {
           sessionStorage.removeItem('activeUsers');
           const url = `${
             window.location.href.split('src')[0]
-          }src/index.html`;
+          }`;
           window.history.pushState({path:url},'',url);
           document.getElementById('big-nav').classList.add('hidden-item');
         document.getElementById('small-nav').classList.add('hidden-item');
@@ -103,7 +103,7 @@ const getURL = (hash = window.location.hash) => {
         } else if (queryString == "" || queryString == '#') {
           const url = `${
             window.location.href.split('src')[0]
-          }src/index.html#home`;
+          }#home`;
           window.history.pushState({path:url},'',url);
           document.getElementById('dropdown-nav-text').innerText =
             'Menu';
@@ -133,7 +133,7 @@ const getURL = (hash = window.location.hash) => {
 	} else {
     const url = `${
       window.location.href.split('src')[0]
-    }src/index.html`;
+    }`;
     window.history.pushState({path:url},'',url);
     document.getElementById('big-nav').classList.add('hidden-item');
 		document.getElementById('small-nav').classList.add('hidden-item');
