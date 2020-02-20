@@ -1,14 +1,13 @@
 const apiManager = {
 	getUserNews(userId) {
-		
 		return fetch(
 
 			`https://tct-nutshell.herokuapp.com/news?userId=${userId}`
 
 		).then(resp => resp.json());
 	},
-	getSiteUrl() {
-		return fetch(`https://source.unsplash.com/collection/8833779/300x300`)
+	getSiteUrl(query) {
+		return fetch(`https://source.unsplash.com/collection/${query}`)
 		
 	},
 	addUserNews(newsObj) {
