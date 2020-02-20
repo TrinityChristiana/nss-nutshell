@@ -5,7 +5,8 @@ import eventsMainManager from "./events/eventsMain.js";
 import auth from "./auth/main.js";
 import allNews from "./all-news/main.js";
 import unsplash from "./articles/apiManager.js";
-import eventsEventListenerManager from "./friends-events/friendEventListener.js"
+import eventsEventListenerManager from "./friends-events/friendEventListener.js";
+import friendsApi from './friends/kkApiManager.js'
 
 
 const navbarArray = ["home", "personalnews", "friends", "logout", "events", "home&events", "home&news"];
@@ -24,6 +25,9 @@ const getURL = (hash = window.location.hash) => {
   var queryString = hash;
   const activeUser = sessionStorage.getItem("activeUsers");
 	if (activeUser !== null) {
+    friendsApi.getUser(activeUser).then(data => document.getElementById("user-welcome").innerHTML = `<h3>Hello ${data[0].username}!</h3>`)
+    
+
 		$('.ui.inline.dropdown').dropdown();
 		document.getElementById('big-nav').classList.remove('hidden-item');
 		document.getElementById('small-nav').classList.remove('hidden-item');
@@ -86,7 +90,8 @@ const getURL = (hash = window.location.hash) => {
           kkMainManager.kkRunIt(activeUser);
         } else if (queryString == '#logout') {
           document.getElementById('dropdown-nav-text').innerText = 'Logout';
-           document.getElementById('sidebar-button').innerHTML = '';
+          document.getElementById('sidebar-button').innerHTML = '';
+
           sessionStorage.removeItem('activeUsers');
           const url = `${
             window.location.href.split('com')[0]
