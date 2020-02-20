@@ -36,6 +36,9 @@ const verificationManager = {
             formManager.clearForm()
         }
        else if(arr[0].password===obj.password&arr[0].email===obj.email){
+           document.getElementById("container").innerHTML = `<div class="ui active dimmer">
+          <div class="ui text loader">Loading</div>
+        </div>`;
               sessionStorage.setItem('activeUsers', arr[0].id)
 
 
@@ -43,9 +46,7 @@ const verificationManager = {
             window.location.href.split('com')[0]
           }com#home`;
           window.history.pushState({path:url},'',url);
-           document.getElementById("container").innerHTML = `<div class="ui active dimmer">
-          <div class="ui text loader">Loading</div>
-        </div>`;
+           
 
           }else if (arr[0].username===obj.username || arr[0].email===obj.email) {
               domManager.errorBoxFiller();
@@ -58,15 +59,16 @@ const verificationManager = {
             if(arr.length<1){
                 apiManager.getUserProfileViaUsername(obj.username).then(arr=> {
                     if (arr.length<1){
+                        document.getElementById("container").innerHTML = `<div class="ui active dimmer">
+          <div class="ui text loader">Loading</div>
+        </div>`;
                         apiManager.addNewProfile(obj).then (arr=> {
                             sessionStorage.setItem('activeUsers', arr.id)
                             const url = `${
             window.location.href.split('com')[0]
           }com#home`;
           window.history.pushState({path:url},'',url);
-                            document.getElementById("container").innerHTML = `<div class="ui active dimmer">
-          <div class="ui text loader">Loading</div>
-        </div>`;
+                            
                         })
                         
                     }else {
