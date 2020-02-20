@@ -1,12 +1,12 @@
-import article from './articles/main.js';
-import kkMainManager from './friends/kkMain.js';
-import tasks from './tasks/main.js';
-import eventsMainManager from './events/eventsMain.js';
-import auth from './auth/main.js';
-import allNews from './all-news/main.js';
-import unsplash from './articles/apiManager.js';
-
-const activeUser = sessionStorage.getItem('activeUsers');
+import article from "./articles/main.js";
+import kkMainManager from "./friends/kkMain.js";
+import tasks from "./tasks/main.js";
+import eventsMainManager from "./events/eventsMain.js";
+import auth from "./auth/main.js";
+import allNews from "./all-news/main.js";
+import unsplash from "./articles/apiManager.js";
+import eventsEventListenerManager from "./friends-events/friendEventListener.js"
+const activeUser = sessionStorage.getItem("activeUsers");
 
 const getURL = () => {
 	let url = window.location.href;
@@ -15,16 +15,15 @@ const getURL = () => {
 	if (activeUser !== null) {
 		$('.ui.inline.dropdown').dropdown();
 		document.getElementById('big-nav').classList.remove('hidden-item');
-
 		document.getElementById('small-nav').classList.remove('hidden-item');
 
-		if (queryString !== undefined) tasks.runIt();
+    if (queryString !== undefined) tasks.runIt();
 
 		if (queryString == 'home') {
 			document.getElementById('dropdown-nav-text').innerText =
 				'Menu';
 			const container = document.getElementById('body-container');
-
+      container.style.height = "88vh"
 			unsplash.getSiteUrl('452289/1000x1000').then(data => {
 				const imgUrl = data.url;
 				container.style.backgroundImage = `url(${imgUrl})`;
@@ -45,7 +44,6 @@ const getURL = () => {
 			window.location.href = `${window.location.href.split("com")[0]}com`;
 		} else if (queryString == 'events') {
 			document.getElementById('dropdown-nav-text').innerText = 'Events';
-
 			eventsMainManager.eventNavButton(
 				sessionStorage.getItem(`activeUsers`)
 			);
@@ -54,11 +52,11 @@ const getURL = () => {
 		} else if (queryString == 'home&news') {
 			document.getElementById('dropdown-nav-text').innerText =
 				'Friend News';
-
 			allNews.runIt();
 		} else if (queryString == 'home&events') {
 			document.getElementById('dropdown-nav-text').innerText =
-				'Friend Events';
+        'Friend Events';
+        eventsEventListenerManager.refreshEventContainer(sessionStorage.getItem(`activeUsers`))
 		}
 		
 		
