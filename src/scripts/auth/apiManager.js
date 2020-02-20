@@ -1,6 +1,6 @@
 //Kurt Krafft =>handles fetch calls
 
-const baseUrl = 'http://localhost:8088/';
+const baseUrl = 'https://tct-nutshell.herokuapp.com';
 
 const apiManager = {
     getUserProfileViaEmail: (email) => {
