@@ -4,7 +4,9 @@
 const apiManager = {
 	getUserNews(userId) {
 		return fetch(
-			`http://localhost:8088/news?userId=${userId}`
+
+			`https://tct-nutshell.herokuapp.com/news?userId=${userId}`
+
 		).then(resp => resp.json());
 	},
 	getSiteUrl(query) {
@@ -12,7 +14,7 @@ const apiManager = {
 		
 	},
 	addUserNews(newsObj) {
-		return fetch('http://localhost:8088/news', {
+		return fetch('https://tct-nutshell.herokuapp.com/news', {
 			// Replace "url" with your API's URL
 			method: 'POST',
 			headers: {
@@ -22,7 +24,7 @@ const apiManager = {
 		});
 	},
 	deleteUserNews(id) {
-		return fetch(`http://localhost:8088/news/${id}`, {
+		return fetch(`https://tct-nutshell.herokuapp.com/news/${id}`, {
 			// Replace "url" with your API's URL
 			method: 'DELETE'
 		});
@@ -30,12 +32,12 @@ const apiManager = {
 	getSingleNews(id) {
 		const activeUserId = sessionStorage.getItem("activeUsers");
 		return fetch(
-			`http://localhost:8088/news?userId=${activeUserId}&&id=${id}`
+			`https://tct-nutshell.herokuapp.com/news?userId=${activeUserId}&&id=${id}`
 		).then(resp => resp.json());
 	},
 	editUserNews(id, newsObj) {
 		return fetch(
-			`http://localhost:8088/news/${id}`,
+			`https://tct-nutshell.herokuapp.com/news/${id}`,
 			{
 				method: `PUT`,
 				headers: {
@@ -46,7 +48,7 @@ const apiManager = {
 		);
 	},
 	getArticleAPI(){
-		return fetch(`http://localhost:8088/apiKeys/1`)
+		return fetch(`https://tct-nutshell.herokuapp.com/apiKeys/1`)
 		.then(resp => resp.json());
 	}
 };

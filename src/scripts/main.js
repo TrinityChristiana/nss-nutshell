@@ -68,6 +68,7 @@ const getURL = (hash = window.location.hash) => {
       <div id="sidebar-button-container">
         <div id="sidebar-button" class="ui labeled button" tabindex="0">
 
+
         </div>
       </div>
         `;	
@@ -128,6 +129,7 @@ const getURL = (hash = window.location.hash) => {
           history.back()
         }		
       }
+
 	} else {
     const url = `${
       window.location.href.split('src')[0]
