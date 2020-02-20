@@ -25,7 +25,7 @@ const getURL = (hash = window.location.hash) => {
   var queryString = hash;
   const activeUser = sessionStorage.getItem("activeUsers");
 	if (activeUser !== null) {
-    friendsApi.getUser(activeUser).then(data => document.getElementById("user-welcome").innerHTML = `<h2>Welcome ${data[0].username}</h2>`)
+    friendsApi.getUser(activeUser).then(data => document.getElementById("user-welcome").innerHTML = `<h3>Hello ${data[0].username}!</h3>`)
     
 
 		$('.ui.inline.dropdown').dropdown();
