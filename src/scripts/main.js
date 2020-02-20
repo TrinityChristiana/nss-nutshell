@@ -17,7 +17,7 @@ window.addEventListener("hashchange", function() {
 
 document.getElementsByTagName("NAV")[0].addEventListener("click", () => {
   if(navbarArray.includes(event.target.id)){
-    window.location.href = `${window.location.href.split("src")[0]}src/index.html#${event.target.id}`;
+    window.location.href = `${window.location.href.split('com')[0]}com#${event.target.id}`;
   }
 });
 
@@ -72,6 +72,7 @@ const getURL = (hash = window.location.hash) => {
       <div id="sidebar-button-container">
         <div id="sidebar-button" class="ui labeled button" tabindex="0">
 
+
         </div>
       </div>
         `;	
@@ -90,10 +91,11 @@ const getURL = (hash = window.location.hash) => {
         } else if (queryString == '#logout') {
           document.getElementById('dropdown-nav-text').innerText = 'Logout';
           document.getElementById('sidebar-button').innerHTML = '';
+
           sessionStorage.removeItem('activeUsers');
           const url = `${
-            window.location.href.split('src')[0]
-          }src/index.html`;
+            window.location.href.split('com')[0]
+          }com`;
           window.history.pushState({path:url},'',url);
           document.getElementById('big-nav').classList.add('hidden-item');
         document.getElementById('small-nav').classList.add('hidden-item');
@@ -105,8 +107,8 @@ const getURL = (hash = window.location.hash) => {
           );
         } else if (queryString == "" || queryString == '#') {
           const url = `${
-            window.location.href.split('src')[0]
-          }src/index.html#home`;
+            window.location.href.split('com')[0]
+          }com#home`;
           window.history.pushState({path:url},'',url);
           document.getElementById('dropdown-nav-text').innerText =
             'Menu';
@@ -132,10 +134,11 @@ const getURL = (hash = window.location.hash) => {
           history.back()
         }		
       }
+
 	} else {
     const url = `${
-      window.location.href.split('src')[0]
-    }src/index.html`;
+      window.location.href.split('com')[0]
+    }com`;
     window.history.pushState({path:url},'',url);
     document.getElementById('big-nav').classList.add('hidden-item');
 		document.getElementById('small-nav').classList.add('hidden-item');
