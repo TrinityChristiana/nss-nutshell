@@ -39,6 +39,7 @@ const getURL = (hash = window.location.hash) => {
       container.style.height = "88vh"
       container.style.boxShadow = "rgb(0, 0, 0) 0px 0px 19px inset"
 			unsplash.getSiteUrl('452289/1000x1000').then(data => {
+				console.log("runs");
 				const imgUrl = data.url;
 				container.style.backgroundImage = `url(${imgUrl})`;
         container.innerHTML = `
@@ -53,6 +54,7 @@ const getURL = (hash = window.location.hash) => {
   
           </div>
         </div>
+document.getElementById('container').innerHTML = '';
           `;	
         document.getElementById('container').innerHTML = '';
         tasks.runIt();
