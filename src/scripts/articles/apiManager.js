@@ -48,7 +48,7 @@ const apiManager = {
 		);
 	},
 	getArticleAPI(){
-		return fetch(`http://localhost:8088/apiKeys/1`)
+		return fetch(`https://tct-nutshell.herokuapp.com/apiKeys/1`)
 		.then(resp => resp.json());
 	}
 };
