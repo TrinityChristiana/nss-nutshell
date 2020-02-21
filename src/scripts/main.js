@@ -9,8 +9,6 @@ import eventsEventListenerManager from "./friends-events/friendEventListener.js"
 import friendsApi from './friends/kkApiManager.js';
 import siteURL from './siteurl.js'
 
-console.log(window.location.href)
-
 const navbarArray = ["home", "personalnews", "friends", "logout", "events", "home&events", "home&news"];
 const hashnavbarArray = ["#home", "#personalnews", "#friends", "#logout", "#events", "#home&events", "#home&news"];
 window.addEventListener("hashchange", function() {

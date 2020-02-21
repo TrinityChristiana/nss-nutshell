@@ -94,6 +94,30 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
   <script type="module" src="scripts/main.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.9.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.9.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDuRHBYSP4LEE_xmdFbPvpivkMwuTjoFFk",
+    authDomain: "tst-nutshell.firebaseapp.com",
+    databaseURL: "https://tst-nutshell.firebaseio.com",
+    projectId: "tst-nutshell",
+    storageBucket: "tst-nutshell.appspot.com",
+    messagingSenderId: "782961469473",
+    appId: "1:782961469473:web:23af026bd20e69efb65b60",
+    measurementId: "G-0J8Y62R4G1"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 </body>
 
 </html>
