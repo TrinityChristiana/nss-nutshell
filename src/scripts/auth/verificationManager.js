@@ -2,6 +2,8 @@
 
 import apiManager from  "./apiManager.js";
 import domManager from "./domManager.js";
+import siteURL from '../siteurl.js';
+
 const clearModalManager = {
     clearModal:() => {
         
@@ -42,7 +44,7 @@ const verificationManager = {
               sessionStorage.setItem('activeUsers', arr[0].id)
 
 
-              window.location.href = `${window.location.href.split('com')[0]}com#home`;
+              window.location.href = `${window.location.href.split(siteURL.splitAt())[0]}${siteURL.addIn()}#home`;
            
 
           }else if (arr[0].username===obj.username || arr[0].email===obj.email) {
@@ -61,7 +63,7 @@ const verificationManager = {
         </div>`;
                         apiManager.addNewProfile(obj).then (arr=> {
                             sessionStorage.setItem('activeUsers', arr.id)
-                            window.location.href = `${window.location.href.split('com')[0]}com#home`;
+                            window.location.href = `${window.location.href.split(siteURL.splitAt())[0]}${siteURL.addIn()}#home`;
 
                             
                         })

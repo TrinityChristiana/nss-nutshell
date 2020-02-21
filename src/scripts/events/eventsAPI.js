@@ -1,4 +1,4 @@
-import baseUrl from "../server-url.js"
+import baseURL from "../server-url.js"
 
 const eventAPI = {
   getEvents(activeUserId) {

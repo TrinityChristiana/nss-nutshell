@@ -1,6 +1,6 @@
 /* Author: Trinity Terry */
 /* Purpose: Fetches Data from JSON file for task sidebar */
-import baseUrl from "../server-url.js"
+import baseURL from "../server-url.js"
 
 const apiManager = {
 	runIt() {},

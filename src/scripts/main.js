@@ -6,8 +6,10 @@ import auth from "./auth/main.js";
 import allNews from "./all-news/main.js";
 import unsplash from "./articles/apiManager.js";
 import eventsEventListenerManager from "./friends-events/friendEventListener.js";
-import friendsApi from './friends/kkApiManager.js'
+import friendsApi from './friends/kkApiManager.js';
+import siteURL from './siteurl.js'
 
+console.log(window.location.href)
 
 const navbarArray = ["home", "personalnews", "friends", "logout", "events", "home&events", "home&news"];
 const hashnavbarArray = ["#home", "#personalnews", "#friends", "#logout", "#events", "#home&events", "#home&news"];
@@ -17,7 +19,7 @@ window.addEventListener("hashchange", function() {
 
 document.getElementsByTagName("NAV")[0].addEventListener("click", () => {
   if(navbarArray.includes(event.target.id)){
-    window.location.href = `${window.location.href.split('com')[0]}com#${event.target.id}`;
+    window.location.href = `${window.location.href.split(siteURL.splitAt())[0]}${siteURL.addIn()}#${event.target.id}`;
   }
 });
 
@@ -98,8 +100,8 @@ const getURL = (hash = window.location.hash) => {
 
           sessionStorage.removeItem('activeUsers');
           const url = `${
-            window.location.href.split('com')[0]
-          }com`;
+            window.location.href.split(siteURL.splitAt())[0]
+          }${siteURL.addIn()}`;
           window.history.pushState({path:url},'',url);
           document.getElementById('big-nav').classList.add('hidden-item');
         document.getElementById('small-nav').classList.add('hidden-item');
@@ -111,8 +113,8 @@ const getURL = (hash = window.location.hash) => {
           );
         } else if (queryString == "" || queryString == '#') {
           const url = `${
-            window.location.href.split('com')[0]
-          }com#home`;
+            window.location.href.split(siteURL.splitAt())[0]
+          }${siteURL.addIn()}#home`;
           window.history.pushState({path:url},'',url);
           document.getElementById('dropdown-nav-text').innerText =
             'Menu';
@@ -141,8 +143,8 @@ const getURL = (hash = window.location.hash) => {
 
 	} else {
     const url = `${
-      window.location.href.split('com')[0]
-    }com`;
+      window.location.href.split(siteURL.splitAt())[0]
+    }${siteURL.addIn()}`;
     window.history.pushState({path:url},'',url);
     document.getElementById('big-nav').classList.add('hidden-item');
 		document.getElementById('small-nav').classList.add('hidden-item');
