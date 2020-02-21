@@ -21,6 +21,12 @@ document.getElementsByTagName("NAV")[0].addEventListener("click", () => {
   }
 });
 
+
+function noScroll() {
+  console.log("haha")
+  window.scrollTo(0, 0);
+}
+
 const getURL = (hash = window.location.hash) => {
   var queryString = hash;
   const activeUser = sessionStorage.getItem("activeUsers");
@@ -34,6 +40,12 @@ const getURL = (hash = window.location.hash) => {
 
     
 		if (hash == '#home') {
+      // add listener to disable scroll
+      window.addEventListener('scroll', noScroll);
+      document.addEventListener("touchmove", noScroll, false);
+
+
+
 			document.getElementById('dropdown-nav-text').innerText =
 				'Menu';
 			const container = document.getElementById('body-container');
@@ -50,6 +62,7 @@ const getURL = (hash = window.location.hash) => {
         </div>
       </div>
         `;	
+        document.getElementsByTagName("HTML")[0].style.overflow = "hidden"
       container.style.height = "88vh"
       container.style.boxShadow = "rgb(0, 0, 0) 0px 0px 19px inset"
 			unsplash.getSiteUrl('452289/1000x1000').then(data => {
@@ -60,6 +73,9 @@ const getURL = (hash = window.location.hash) => {
         tasks.runIt();
       });
     } else {
+      // Remove listener to re-enable scroll
+window.removeEventListener('scroll', noScroll);
+document.addEventListener("touchmove", noScroll, false);
       const container = document.getElementById('body-container');
       container.innerHTML = `
       <div id="container">
