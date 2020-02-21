@@ -44,11 +44,6 @@ document.getElementsByTagName("HTML")[0].webkitRequestFullscreen()
 		if (hash == '#home') {
 
       // add listener to disable scroll
-      window.addEventListener('scroll', noScroll);
-      window.addEventListener("touchmove", noScroll, false);
-
-
-
 			document.getElementById('dropdown-nav-text').innerText =
 				'Menu';
 			const container = document.getElementById('body-container');
@@ -76,9 +71,6 @@ document.getElementsByTagName("HTML")[0].webkitRequestFullscreen()
         tasks.runIt();
       });
     } else {
-      // Remove listener to re-enable scroll
-window.removeEventListener('scroll', noScroll);
-window.addEventListener("touchmove", noScroll, false);
       const container = document.getElementById('body-container');
       container.innerHTML = `
       <div id="container">
