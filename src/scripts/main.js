@@ -42,7 +42,7 @@ const getURL = (hash = window.location.hash) => {
 		if (hash == '#home') {
       // add listener to disable scroll
       window.addEventListener('scroll', noScroll);
-      document.addEventListener("touchmove", noScroll, false);
+      window.addEventListener("touchmove", noScroll, false);
 
 
 
@@ -75,7 +75,7 @@ const getURL = (hash = window.location.hash) => {
     } else {
       // Remove listener to re-enable scroll
 window.removeEventListener('scroll', noScroll);
-document.addEventListener("touchmove", noScroll, false);
+window.addEventListener("touchmove", noScroll, false);
       const container = document.getElementById('body-container');
       container.innerHTML = `
       <div id="container">
