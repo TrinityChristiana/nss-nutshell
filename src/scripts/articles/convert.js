@@ -7,6 +7,12 @@ import eventListeners from './eventListeners.js';
 
 const convert = {
 	runIt() {
+		document.getElementById("container").innerHTML = `
+		<div id="container">
+		<div class="ui active dimmer">
+		 <div class="ui text loader">Loading</div>
+	   </div> 
+		`;
 		const activeUserId = sessionStorage.getItem('activeUsers');
 		renderManager.renderNewPageToDom(`<div id="article-container"></div>`);
 		const articleContainer = document.getElementById('article-container');

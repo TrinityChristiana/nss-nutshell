@@ -6,6 +6,7 @@ import convert from './convert.js';
 
 const article = {
 	runIt() {
+		
 		articleEvtManager.runIt();
 		convert.runIt();
 	}

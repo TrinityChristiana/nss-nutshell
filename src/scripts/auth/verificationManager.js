@@ -42,10 +42,7 @@ const verificationManager = {
               sessionStorage.setItem('activeUsers', arr[0].id)
 
 
-              const url = `${
-            window.location.href.split('com')[0]
-          }com#home`;
-          window.history.pushState({path:url},'',url);
+              window.location.href = `${window.location.href.split('com')[0]}com#home`;
            
 
           }else if (arr[0].username===obj.username || arr[0].email===obj.email) {
@@ -64,10 +61,8 @@ const verificationManager = {
         </div>`;
                         apiManager.addNewProfile(obj).then (arr=> {
                             sessionStorage.setItem('activeUsers', arr.id)
-                            const url = `${
-            window.location.href.split('com')[0]
-          }com#home`;
-          window.history.pushState({path:url},'',url);
+                            window.location.href = `${window.location.href.split('com')[0]}com#home`;
+
                             
                         })
                         

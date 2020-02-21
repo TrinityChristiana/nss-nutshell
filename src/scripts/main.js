@@ -32,40 +32,13 @@ const getURL = (hash = window.location.hash) => {
 		document.getElementById('big-nav').classList.remove('hidden-item');
 		document.getElementById('small-nav').classList.remove('hidden-item');
 
+    
 		if (hash == '#home') {
-			console.log("runs");
 			document.getElementById('dropdown-nav-text').innerText =
 				'Menu';
 			const container = document.getElementById('body-container');
-      container.style.height = "88vh"
-      container.style.boxShadow = "rgb(0, 0, 0) 0px 0px 19px inset"
-			unsplash.getSiteUrl('452289/1000x1000').then(data => {
-				
-				const imgUrl = data.url;
-				container.style.backgroundImage = `url(${imgUrl})`;
-        container.innerHTML = `
-        <h1 id="welcome-message">Welcome to Twixbook</h1>
-          <div id="container">
-           <div class="ui active dimmer">
-            <div class="ui text loader">Loading</div>
-          </div> 
-        </div>
-        <div id="sidebar-button-container">
-          <div id="sidebar-button" class="ui labeled button" tabindex="0">
-  
-          </div>
-        </div>
-          `;	
-        document.getElementById('container').innerHTML = '';
-        tasks.runIt();
-      });
-    } else {
-      const container = document.getElementById('body-container');
-      container.style.height = "auto";
-      container.style.boxShadow = "none"
-			
-				container.style.backgroundImage = ``;
-        container.innerHTML = `
+      container.innerHTML = `
+      <h1 id="welcome-message">Welcome to Twixbook</h1>
         <div id="container">
          <div class="ui active dimmer">
           <div class="ui text loader">Loading</div>
@@ -74,10 +47,37 @@ const getURL = (hash = window.location.hash) => {
       <div id="sidebar-button-container">
         <div id="sidebar-button" class="ui labeled button" tabindex="0">
 
-
         </div>
       </div>
         `;	
+      container.style.height = "88vh"
+      container.style.boxShadow = "rgb(0, 0, 0) 0px 0px 19px inset"
+			unsplash.getSiteUrl('452289/1000x1000').then(data => {
+				
+				const imgUrl = data.url;
+				container.style.backgroundImage = `url(${imgUrl})`;
+        document.getElementById('container').innerHTML = '';
+        tasks.runIt();
+      });
+    } else {
+      const container = document.getElementById('body-container');
+      container.innerHTML = `
+      <div id="container">
+       <div class="ui active dimmer">
+        <div class="ui text loader">Loading</div>
+      </div> 
+    </div>
+    <div id="sidebar-button-container">
+      <div id="sidebar-button" class="ui labeled button" tabindex="0">
+
+
+      </div>
+    </div>
+      `;	
+      container.style.height = "auto";
+      container.style.boxShadow = "none"
+			
+        container.style.backgroundImage = ``;
         if(hashnavbarArray.includes(hash)){
 
           tasks.runIt();
