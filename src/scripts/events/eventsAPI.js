@@ -1,11 +1,13 @@
+import baseUrl from "../server-url.js"
+
 const eventAPI = {
   getEvents(activeUserId) {
     return fetch(
-      `https://tct-nutshell.herokuapp.com/events?userId=${activeUserId}`
+      `${baseURL}events?userId=${activeUserId}`
     ).then(resp => resp.json());
   },
   updateEvent(event) {
-    return fetch(`https://tct-nutshell.herokuapp.com/events/${event.id}`, {
+    return fetch(`${baseURL}events/${event.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -14,7 +16,7 @@ const eventAPI = {
     });
   },
   saveEvent(event) {
-    return fetch(`https://tct-nutshell.herokuapp.com/events/`, {
+    return fetch(`${baseURL}events/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -27,7 +29,7 @@ const eventAPI = {
     const nameInput = document.querySelector("#nameInput");
     const locationInput = document.querySelector("#locationInput");
     const dateInput = document.querySelector("#dateInput");
-    fetch(`https://tct-nutshell.herokuapp.com/events/${eventId}`)
+    fetch(`${baseURL}events/${eventId}`)
       .then(response => response.json())
       .then(event => {
         hiddenEventId.value = event.id;
@@ -37,7 +39,7 @@ const eventAPI = {
       });
   },
   deleteEvent(eventId) {
-      return fetch(`https://tct-nutshell.herokuapp.com/events/${eventId}`, {
+      return fetch(`${baseURL}events/${eventId}`, {
           method: "DELETE"
       }).then(response => response.json());
   }

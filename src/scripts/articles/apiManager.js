@@ -1,11 +1,12 @@
 /* Author: Trinity Terry */
 /* Purpose: Fetches Data from JSON file for article page*/
+import baseURL from "../server-url.js";
 
 const apiManager = {
 	getUserNews(userId) {
 		return fetch(
 
-			`https://tct-nutshell.herokuapp.com/news?userId=${userId}`
+			`${baseURL}news?userId=${userId}`
 
 		).then(resp => resp.json());
 	},
@@ -14,7 +15,7 @@ const apiManager = {
 		
 	},
 	addUserNews(newsObj) {
-		return fetch('https://tct-nutshell.herokuapp.com/news', {
+		return fetch('${baseURL}news', {
 			// Replace "url" with your API's URL
 			method: 'POST',
 			headers: {
@@ -24,7 +25,7 @@ const apiManager = {
 		});
 	},
 	deleteUserNews(id) {
-		return fetch(`https://tct-nutshell.herokuapp.com/news/${id}`, {
+		return fetch(`${baseURL}news/${id}`, {
 			// Replace "url" with your API's URL
 			method: 'DELETE'
 		});
@@ -32,12 +33,12 @@ const apiManager = {
 	getSingleNews(id) {
 		const activeUserId = sessionStorage.getItem("activeUsers");
 		return fetch(
-			`https://tct-nutshell.herokuapp.com/news?userId=${activeUserId}&&id=${id}`
+			`${baseURL}news?userId=${activeUserId}&&id=${id}`
 		).then(resp => resp.json());
 	},
 	editUserNews(id, newsObj) {
 		return fetch(
-			`https://tct-nutshell.herokuapp.com/news/${id}`,
+			`${baseURL}news/${id}`,
 			{
 				method: `PUT`,
 				headers: {
@@ -48,7 +49,7 @@ const apiManager = {
 		);
 	},
 	getArticleAPI(){
-		return fetch(`https://tct-nutshell.herokuapp.com/apiKeys/1`)
+		return fetch(`${baseURL}apiKeys/1`)
 		.then(resp => resp.json());
 	}
 };

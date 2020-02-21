@@ -1,16 +1,17 @@
 /* Author: Trinity Terry */
 /* Purpose: Fetches Data from JSON file for task sidebar */
+import baseUrl from "../server-url.js"
 
 const apiManager = {
 	runIt() {},
 	getTasks() {
         const activeUserId = sessionStorage.getItem("activeUsers");
 		return fetch(
-			`https://tct-nutshell.herokuapp.com/tasks?userId=${activeUserId}&_sort=complete_on`
+			`${baseURL}tasks?userId=${activeUserId}&_sort=complete_on`
 		).then(resp => resp.json());
 	},
 	addtask(taskObj) {
-		return fetch('https://tct-nutshell.herokuapp.com/tasks', {
+		return fetch('${baseURL}tasks', {
 			// Replace "url" with your API's URL
 			method: 'POST',
 			headers: {
@@ -20,18 +21,18 @@ const apiManager = {
 		});
 	},
 	deleteTask(id) {
-		return fetch(`https://tct-nutshell.herokuapp.com/tasks/${id}`, {
+		return fetch(`${baseURL}tasks/${id}`, {
 			// Replace "url" with your API's URL
 			method: 'DELETE'
 		});
 	},
 	getSingleTask(id) {
-		return fetch(`https://tct-nutshell.herokuapp.com/tasks?id=${id}`).then(resp =>
+		return fetch(`${baseURL}tasks?id=${id}`).then(resp =>
 			resp.json()
 		);
 	},
 	editTask(taskObj, id) {
-		return fetch(`https://tct-nutshell.herokuapp.com/tasks/${id}`, {
+		return fetch(`${baseURL}tasks/${id}`, {
 			// Replace "url" with your API's URL
 			method: 'PUT',
 			headers: {
@@ -46,7 +47,7 @@ const apiManager = {
 				return data[0].done ? false : true;
 			})
 			.then(done => {
-				return fetch(`https://tct-nutshell.herokuapp.com/tasks/${id}`, {
+				return fetch(`${baseURL}tasks/${id}`, {
 					// Replace "url" with your API's URL
 					method: 'PATCH',
 					headers: {

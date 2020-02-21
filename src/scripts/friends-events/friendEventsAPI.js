@@ -1,12 +1,15 @@
+import baseUrl from "../server-url.js"
+
+
 const eventAPI = {
     getFriends(activeUserId) {
       return fetch(
-        `https://tct-nutshell.herokuapp.com/friends?friendUserId=${activeUserId}`
+        `${baseURL}friends?friendUserId=${activeUserId}`
       ).then(resp => resp.json());
     },
     getEvents(UserId) {
       return fetch(
-        `https://tct-nutshell.herokuapp.com/events?userId=${UserId}`
+        `${baseURL}events?userId=${UserId}`
       ).then(resp => resp.json());
     },
   };

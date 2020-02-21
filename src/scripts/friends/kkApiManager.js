@@ -1,6 +1,6 @@
 //Kurt Krafft => this page handles all my api calls
 
-const baseUrl = "https://tct-nutshell.herokuapp.com/"
+import baseUrl from "../server-url.js"
 
 const apiManager = {
     getFriendList: (userId, resource) => {

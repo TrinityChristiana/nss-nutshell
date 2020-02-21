@@ -1,0 +1,1 @@
+export default "https://tct-nutshell.herokuapp.com/";
