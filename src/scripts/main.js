@@ -21,18 +21,10 @@ document.getElementsByTagName("NAV")[0].addEventListener("click", () => {
   }
 });
 
-
-function noScroll() {
-  console.log("haha")
-  window.scrollTo(0, 0);
-}
-
 const getURL = (hash = window.location.hash) => {
   var queryString = hash;
   const activeUser = sessionStorage.getItem("activeUsers");
 	if (activeUser !== null) {
-document.getElementsByTagName("HTML")[0].webkitRequestFullscreen()
-    // document.documentElement.requestFullscreen()
     friendsApi.getUser(activeUser).then(data => document.getElementById("user-welcome").innerHTML = `<h3>Hello ${data[0].username}!</h3>`)
     
 
@@ -43,7 +35,6 @@ document.getElementsByTagName("HTML")[0].webkitRequestFullscreen()
     
 		if (hash == '#home') {
 
-      // add listener to disable scroll
 			document.getElementById('dropdown-nav-text').innerText =
 				'Menu';
 			const container = document.getElementById('body-container');
